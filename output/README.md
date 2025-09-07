@@ -27,6 +27,22 @@ python demo_compare_resolutions.py \
   --out_vars geopotential_500 temperature_850 2m_temperature
 ```
 
+Train:
+```
+python src/climax/regional_forecast/train.py \
+  --config configs/regional_forecast_climax.yaml \
+  --trainer.callbacks=null \
+  --trainer.accelerator=mps --trainer.devices=1 --trainer.precision=32-true \
+  --data.root_dir=/mnt/data/5.625deg_npz \
+  --data.region="NorthAmerica" \
+  --data.predict_range=72 \
+  --data.out_variables="['z_500','t_850','t2m']" \
+  --data.batch_size=1 --data.num_workers=0 \
+  --trainer.max_epochs=1 \
+  --model.pretrained_path="./data-ch/1.40625deg.ckpt" \
+  --model.lr=5e-7 --model.beta_1=0.9 --model.beta_2=0.99 \
+  --model.weight_decay=1e-5
+```
 
 Deps:
 ```
