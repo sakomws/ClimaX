@@ -2,7 +2,7 @@ seed_everything: 42
 
 # ---------------------------- TRAINER -------------------------------------------
 trainer:
-  default_root_dir: ${oc.env:OUTPUT_DIR,"/Users/sako.mammadov@gladly.com/ClimaX/experiments/regional_forecast_climax"}
+  default_root_dir: ${oc.env:OUTPUT_DIR,"/Users/<your_username>/ClimaX/experiments/regional_forecast_climax"}
 
   # MPS on Apple Silicon: keep full precision for stability
   precision: 32-true
